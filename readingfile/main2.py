@@ -16,7 +16,7 @@ operators = {"+", "-", "*", "/"}
 
 
 
-with open("rpn_expressions_1000_float_mixed.txt", "r", encoding="utf-8") as file:
+with open("/home/siwuser/repositories/rpn-1-2-yoshikazu/readingfile/rpn_expressions_1000_float_mixed.txt", "r", encoding="utf-8") as file:
     for line in file:
         expression = line.strip()
         #print("expression:", expression)
