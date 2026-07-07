@@ -16,7 +16,7 @@ operators = {"+", "-", "*", "/"}
 
 
 
-with open("expressions.txt", "r", encoding="utf-8") as file:
+with open("rpn_expressions_1000_float_mixed.txt", "r", encoding="utf-8") as file:
     for line in file:
         expression = line.strip()
         #print("expression:", expression)
@@ -80,10 +80,13 @@ with open("expressions.txt", "r", encoding="utf-8") as file:
                 # token を整数に変換して stack に入れましょう。
                 #
                 # stack.append(int(token))
-                if token.isdigit():
-                    #print("TODO: 数字をstackに入れる")
-                    stack.append(int(token))
-                else:
+                # if token.isdigit():
+                #     #print("TODO: 数字をstackに入れる")
+                #     stack.append(int(token))
+                # else:
+                try:
+                    stack.append(float(token))
+                except ValueError:
                     print(expression , "=> 数字または演算子ではありません")
                     print()
                     err = True
@@ -98,5 +101,4 @@ with open("expressions.txt", "r", encoding="utf-8") as file:
         elif len(stack) > 1 :
             print(expression,"=> 演算子が足りません")
             err =True
-            print()
- 
+            print() 
