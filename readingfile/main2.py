@@ -7,72 +7,25 @@ def calculate(a, b, operator):
         return a * b
     elif operator == "/":
         if b == 0:
-<<<<<<< HEAD
-            return "ERROR: 0では割れません"
-        return a / b
-    else:
-        return "ERROR: 不明な演算子です"
-=======
             return "ERROR:0では割れません"
         return a/b
     else:
         return "ERROR:不明な演算子です"
 
 operators = {"+", "-", "*", "/"}
->>>>>>> ca4012179f2572e997e51c0a78a26a6240ac9383
 
 
-def calculate_rpn(expression):
-    stack = []
 
-<<<<<<< HEAD
-    tokens = expression.split()
-
-    for token in tokens:
-        if token in ["+", "-", "*", "/"]:
-            if len(stack) < 2:
-                return "ERROR: 数字が足りません"
-
-            b = stack.pop()
-            a = stack.pop()
-
-            result = calculate(a, b, token)
-
-            if isinstance(result, str) and result.startswith("ERROR"):
-                return result
-
-            stack.append(result)
-
-        else:
-            try:
-                number = float(token)
-                stack.append(number)
-            except ValueError:
-                return "ERROR: 数字または演算子ではありません"
-
-    if len(stack) != 1:
-        return "ERROR: 演算子が足りません"
-
-    return stack[0]
-=======
-with open("expressions.txt", "r", encoding="utf-8") as file:
+with open("/home/siwuser/repositories/rpn-1-2-yoshikazu/readingfile/rpn_expressions_1000_float_mixed.txt", "r", encoding="utf-8") as file:
     for line in file:
         expression = line.strip()
         #print("expression:", expression)
 
         #print(expression.split())
->>>>>>> ca4012179f2572e997e51c0a78a26a6240ac9383
 
 
-def main():
-    expression = input("逆ポーランド記法の式を入力してください: ")
-    result = calculate_rpn(expression)
-    print(result)
 
 
-<<<<<<< HEAD
-main()
-=======
 
 
     # TODO:
@@ -127,10 +80,13 @@ main()
                 # token を整数に変換して stack に入れましょう。
                 #
                 # stack.append(int(token))
-                if token.isdigit():
-                    #print("TODO: 数字をstackに入れる")
-                    stack.append(int(token))
-                else:
+                # if token.isdigit():
+                #     #print("TODO: 数字をstackに入れる")
+                #     stack.append(int(token))
+                # else:
+                try:
+                    stack.append(float(token))
+                except ValueError:
                     print(expression , "=> 数字または演算子ではありません")
                     print()
                     err = True
@@ -145,6 +101,4 @@ main()
         elif len(stack) > 1 :
             print(expression,"=> 演算子が足りません")
             err =True
-            print()
- 
->>>>>>> ca4012179f2572e997e51c0a78a26a6240ac9383
+            print() 
