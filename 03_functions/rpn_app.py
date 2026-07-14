@@ -23,7 +23,7 @@ def run_manual_input():
 def run_file_input():
     filepath = (
         Path(__file__).resolve().parent
-        / "../files/expressions.txt"
+        / "expressions.txt"
     )
 
     try:
