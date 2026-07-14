@@ -41,6 +41,17 @@ def run_file_input():
         print("ERROR:ファイルが見つかりません")
         print("探した場所:", filepath)
 
+def fizzbuzz(num):
+    rule=(num % 3==0,num % 5 ==0)
+    if rule==(True,True):
+        return "FizzBuzz"
+    elif rule==(True,False):
+        return "Fizz"
+    elif rule==(False,True):
+        return "Buzz"
+    else:
+        return str(num)
+
 
 def main():
     print("入力方法を選んでください")
